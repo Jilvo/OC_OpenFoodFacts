@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  mar. 10 déc. 2019 à 16:43
+-- Généré le :  mer. 18 déc. 2019 à 21:14
 -- Version du serveur :  5.7.26
 -- Version de PHP :  7.2.18
 
@@ -33,7 +33,7 @@ CREATE TABLE IF NOT EXISTS `category` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(150) CHARACTER SET utf8mb4 NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf32;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf32;
 
 -- --------------------------------------------------------
 
@@ -46,17 +46,11 @@ CREATE TABLE IF NOT EXISTS `product` (
   `id` int(5) NOT NULL,
   `name` varchar(150) CHARACTER SET utf8mb4 NOT NULL,
   `nutriscore` char(1) CHARACTER SET utf8mb4 NOT NULL,
-  `url` text CHARACTER SET utf8mb4,
-  `store` int(150) DEFAULT NULL,
-  `substitut_id` int(11) NOT NULL,
+  `url` text CHARACTER SET utf8mb4 NOT NULL,
+  `store` varchar(150) CHARACTER SET utf8mb4 DEFAULT NULL,
   `category_id` int(11) NOT NULL,
   PRIMARY KEY (`id`),
-  KEY `fk_category_id` (`category_id`),
-  KEY `fk_substitut_id` (`substitut_id`),
-  FOREIGN KEY (category_id) 
-    REFERENCES category(id),
-  FOREIGN KEY (substitut_id)
-    REFERENCES substitut_product(sub_to)
+  KEY `fk_category_id` (`category_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf32;
 
 -- --------------------------------------------------------
@@ -71,8 +65,26 @@ CREATE TABLE IF NOT EXISTS `substitut_product` (
   `sub_from` int(5) NOT NULL,
   `sub_to` int(5) NOT NULL,
   PRIMARY KEY (`id`),
-  KEY `fk_sub_to` (`sub_to`)
+  KEY `fk_sub_to` (`sub_to`),
+  KEY `fk_sub_from` (`sub_from`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf32;
+
+--
+-- Contraintes pour les tables déchargées
+--
+
+--
+-- Contraintes pour la table `product`
+--
+ALTER TABLE `product`
+  ADD CONSTRAINT `cat_product` FOREIGN KEY (`category_id`) REFERENCES `category` (`id`);
+
+--
+-- Contraintes pour la table `substitut_product`
+--
+ALTER TABLE `substitut_product`
+  ADD CONSTRAINT `fk_sub_from` FOREIGN KEY (`sub_from`) REFERENCES `product` (`id`),
+  ADD CONSTRAINT `fk_sub_to` FOREIGN KEY (`sub_to`) REFERENCES `product` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
