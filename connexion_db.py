@@ -21,7 +21,7 @@ class Access_to_data_base():
 
         except Error as e:
             print("Error while connecting to MySQL", e)
-        def close_data_base(self):
+    def close_data_base(self):
             if (self.connection.is_connected()):
                 self.cursor.close()
                 self.connection.close()
