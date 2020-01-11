@@ -14,13 +14,20 @@ class Get_data():
         self.increm_cat = 1
         self.number_of_product = 0
         self.page_product = 1
+
+    def find_if_db_is_empty(self):
+        self.operation = ("SELECT * FROM `product` ")
+        self.cursor.execute(self.operation)
+        record = self.cursor.fetchall()
+        if self.cursor.rowcount <= 10:
+            self.access_to_api()
     def access_to_api(self):
         with open('list_category.txt') as file:
             for line in file.readlines():
-                # self.operation = ("INSERT INTO `category`(`id`, `name`) VALUES (%s,%s)")
-                # self.cat = (self.increm_cat,line)
-                # self.cursor.execute(self.operation,self.cat)
-                # self.connection.commit()
+                self.operation = ("INSERT INTO `category`(`id`, `name`) VALUES (%s,%s)")
+                self.cat = (self.increm_cat,line)
+                self.cursor.execute(self.operation,self.cat)
+                self.connection.commit()
                 self.increm_cat +=1
                 self.category_id += 1
                 self.page_product = 1
@@ -30,11 +37,11 @@ class Get_data():
                     test = json.loads(r.text)
                     for product in test["products"]:
                         if product.get("nutrition_grades",False) and product.get("stores",False):
-                            # self.product = (self.increm_product,product["product_name"],product["nutrition_grades"],product["url"],product["stores"],self.category_id)
-                            # self.operation = ("INSERT INTO `product`(`id`, `name`, `nutriscore`, `url`, `store`, `category_id`) VALUES (%s,%s,%s,%s,%s,%s)")
-                            # self.cursor.execute(self.operation,self.product)
-                            # self.increm_product= self.increm_product +1
-                            # self.connection.commit()
+                            self.product = (self.increm_product,product["product_name"],product["nutrition_grades"],product["url"],product["stores"],self.category_id)
+                            self.operation = ("INSERT INTO `product`(`id`, `name`, `nutriscore`, `url`, `store`, `category_id`) VALUES (%s,%s,%s,%s,%s,%s)")
+                            self.cursor.execute(self.operation,self.product)
+                            self.increm_product= self.increm_product +1
+                            self.connection.commit()
                             self.number_of_product +=1
                             # print(self.number_of_product)
                         if self.number_of_product >= 20:
