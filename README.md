@@ -23,6 +23,7 @@ Si l'utilisateur entre un caractère qui n'est pas un chiffre, le programme doit
 V0.3 installation bdd
 V0.5 fin d'installation et création programme principal
 V0.6 fin création programme principal et boucle pour programme avec vérification pour savoir si la DB est vide ou non
+V0.7 Nettoyer et commenter le code( pylint...)
 
 ### Auteur et Contribution:
 J'ai développé ce programme dans le cadre d'une formation sur Openclassrooms.Par conséquent toute pull request avec du code sera refusé. Ouvrez plutôt une issue pour signaler un bug, une faute d'orthographe ou pour simplement donner un conseil.
