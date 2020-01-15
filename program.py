@@ -2,7 +2,7 @@
 """ V1.0--main program"""
 from random import randint
 
-class Programm():
+class Program():
     """ class for interact with user """
     def __init__(self, connection):
         """ init variables """
@@ -21,6 +21,7 @@ class Programm():
         while self.drap == 0:
             print("1 - Quel produit souhaitez-vous remplacer ? ")
             print("2 - Retrouver mes produits substitués. ")
+            print("3 - Quitter")
             choice = input('')
             if choice == '1':
                 self.replace_product()
@@ -28,6 +29,8 @@ class Programm():
             elif choice == '2':
                 self.disp_sub_product()
                 self.drap += 1
+            elif choice == '3':
+                quit()
             else:
                 pass
 
@@ -53,11 +56,12 @@ class Programm():
                 pass
         self.drap = 0
         while self.drap == 0:
-            self.choice_random = input("Voulez-vous enregister le \
+            self.choice_random = input("Voulez-vous enregister le\
                 produit dans la base de données ? Y/N ")
             # self.drap +=1
             if self.choice_random == "Y":
                 self.choice_random_yes()
+                self.disp_sub_product()
                 self.drap += 1
             elif self.choice_random == "N":
                 print("Le produit n'est pas enregistré, nous allons vous \
@@ -128,13 +132,6 @@ class Programm():
         self.cat = (self.choice_product, self.random_product)
         self.cursor.execute(self.operation, self.cat)
         self.connection.commit()
-        # record = self.cursor.fetchall()
-        # print(record)
-        # print("le nombre total de produit substitué est",self.cursor.rowcount)
-        # for row in record:
-        #     print("L'id est : ", row[0])
-        #     print("Il est substitué du :", row[1])
-        #     print("Il est substituant du :", row[1])
 
     def disp_sub_product(self):
         """ fonction if user press 2 and just want to watch sub_product """

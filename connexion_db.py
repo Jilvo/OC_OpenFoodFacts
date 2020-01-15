@@ -16,8 +16,8 @@ class Fill():
         "fonction for open the connexion"
         try:
             self.connection = mysql.connector.connect(host='localhost',
-                                                      database='a',
-                                                      user='Julien',
+                                                      database='oc_projet_5_off',
+                                                      user='root',
                                                       password='')
             if self.connection.is_connected():
                 self.database_info = self.connection.get_server_info()
