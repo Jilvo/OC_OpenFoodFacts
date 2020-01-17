@@ -30,8 +30,7 @@ sudo apt-get install -y \
 sudo pip3 install -q pygame
 ```
 ### Utilisation 
-Vous devez créer une Base de données nommé "oc_projet_5_off" et autoriser la connexion de l'user "root" avec un mot de passe de champ vide ""
-Ensuite lancer le script SQL contenu dans le dossier "oc_projet_5_off.sql"
+Lancer le script SQL contenu dans le dossier "oc_projet_5_off.sql", une base de données du même nom va être créer.
 Vous devez ensuite lancer le fichier _main.py_
 
 ### Fonctionnement
@@ -48,9 +47,13 @@ Si l'utilisateur entre un caractère qui n'est pas un chiffre, le programme doit
 
 ## Versionnage:
 V0.3 installation bdd
+
 V0.5 fin d'installation et création programme principal.
+
 V0.6 fin création programme principal et boucle pour programme avec vérification pour savoir si la DB est vide ou non.
+
 V0.7 Nettoyer et commenter le code( pylint...).
+
 V1.0 Amélioration README.md et Fin pylint,quelques amélioration comme quitter le programme directement,et amélioration de la visibilité pour l'utilisateur.
 
 ## Auteur et Contribution:

@@ -21,6 +21,8 @@ SET time_zone = "+00:00";
 --
 -- Base de données :  `oc_projet_5_off`
 --
+CREATE DATABASE `oc_projet_5_off`;
+USE `oc_projet_5_off`;
 -- --------------------------------------------------------
 
 --
