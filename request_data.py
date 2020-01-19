@@ -12,7 +12,6 @@ class Getdata():
         self.increm_cat = 1
         self.increm_product = 1
         self.category_id = 0
-        self.increm_cat = 1
         self.number_of_product = 0
 
     def find_if_db_is_empty(self):
