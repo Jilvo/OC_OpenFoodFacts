@@ -14,21 +14,7 @@ L'utilisateur sélectionne 1. Le programme pose les questions suivantes à l'uti
 * L'utilisateur a alors la possibilité d'enregistrer le résultat dans la base de données.
 ## Comment faire marcher le programme?
 Voici les différentes instructions pour faire marcher le programme correctement.
-### Installation
-Vous devez installer le module pygame avec pip si vous êtes sur Windows:
-```bash
-pip install flask
-```
-Si vous êtes sur Linux:
-```bash
-sudo apt-get install -y python3-pip
-sudo apt-get install -y \
-    python3-numpy libav-tools libsdl-image1.2-dev \
-    libsdl-mixer1.2-dev libsdl-ttf2.0-dev libsmpeg-dev libsdl1.2-dev \
-    libportmidi-dev libswscale-dev libavformat-dev libavcodec-dev \
-    libfreetype6-dev
-sudo pip3 install -q flask
-```
+Lancer le module requirements.txt
 ### Utilisation 
 Lancer le script SQL contenu dans le dossier "oc_projet_5_off.sql", une base de données du même nom va être créer.
 Vous devez ensuite lancer le fichier _main.py_
