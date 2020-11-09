@@ -17,7 +17,7 @@ Voici les différentes instructions pour faire marcher le programme correctement
 ### Installation
 Vous devez installer le module pygame avec pip si vous êtes sur Windows:
 ```bash
-pip install pygame
+pip install flask
 ```
 Si vous êtes sur Linux:
 ```bash
@@ -27,7 +27,7 @@ sudo apt-get install -y \
     libsdl-mixer1.2-dev libsdl-ttf2.0-dev libsmpeg-dev libsdl1.2-dev \
     libportmidi-dev libswscale-dev libavformat-dev libavcodec-dev \
     libfreetype6-dev
-sudo pip3 install -q pygame
+sudo pip3 install -q flask
 ```
 ### Utilisation 
 Lancer le script SQL contenu dans le dossier "oc_projet_5_off.sql", une base de données du même nom va être créer.
